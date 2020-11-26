@@ -1,29 +1,29 @@
 <div class="header">
   <div class="inner-header">
     <h1 class="title">
-     TagTweet
+      TagTweet
     </h1>
     <li class='new-post'>
-      <%= link_to "New Post", new_tweet_path, class:"post-btn"%>
+      <%= link_to "New Post", new_tweet_path, class: "post-btn" %>
     </li>
   </div>
 </div>
 
 <div class="main">
   <div class="message-wrap">
-    <% @tweets.each do |tweet|%>
+    <% @tweets.each do |tweet| %>
       <div class="message">
         <p class="text">
           <%= tweet.message %>
         </p>
         <ul class="tag">
           <li class="tag-list">
-            <%tweet.tags.each do |tag| %>
-              #<%=tag.name%>
-            <%end%>
+            <% tweet.tags.each do |tag| %>
+              #<%= tag.name %>
+            <% end %>
           </li>
         </ul>
       </div>
-    <%end%>
+    <% end %>
   </div>
 </div>
