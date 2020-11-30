@@ -1,5 +1,4 @@
 class TweetsController < ApplicationController
-
   def index
     @tweets = Tweet.all.order(created_at: :desc)
   end
@@ -16,6 +15,12 @@ class TweetsController < ApplicationController
     else
       render "new"
     end
+  end
+
+  def search
+    return nil if params[:keyword] == ""
+    tag = Tag.where(["name LIKE ?", "%#{params[:keyword]}%"])
+    render json: { keyword: tag }
   end
 
   private
